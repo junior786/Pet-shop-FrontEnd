@@ -1,0 +1,23 @@
+::ng-deep {
+  .mat-toolbar {
+    display: flex;
+    gap: 5rem;
+    background-color: #d6e6c3;
+
+    .text{
+      &__client {
+        cursor: pointer;
+      }
+    }
+    span {
+      text-transform: uppercase;
+      color: #000000;
+    }
+  }
+
+  .mat-tab-labels {
+    justify-content: space-evenly;
+  }
+}
+
+

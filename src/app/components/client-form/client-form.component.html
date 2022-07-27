@@ -1,0 +1,30 @@
+<section class="container__main">
+  <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field>
+      <mat-label>Nome do cliente</mat-label>
+      <input matInput formControlName="name" placeholder="Nome..." />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>CPF do cliente</mat-label>
+      <input matInput formControlName="cpf" placeholder="Nome..." />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email do cliente</mat-label>
+      <input matInput formControlName="email" placeholder="Nome..." />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Telefone do cliente</mat-label>
+      <input matInput formControlName="telephone" placeholder="Nome..." />
+    </mat-form-field>
+
+    <button mat-raised-button [disabled]="form.invalid">Cadastrar</button>
+  </form>
+
+  <div class="spinner" *ngIf="spinner">
+    <mat-spinner color="primary"></mat-spinner>
+  </div>
+
+</section>

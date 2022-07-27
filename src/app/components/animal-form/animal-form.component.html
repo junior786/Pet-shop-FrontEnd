@@ -1,0 +1,46 @@
+<section class="container__main">
+  <form class="form" [formGroup]="form">
+    <mat-form-field>
+      <mat-label>Nome do animal</mat-label>
+      <input matInput formControlName="name" placeholder="Nome..." />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Sexo do Animal</mat-label>
+      <input matInput formControlName="sex" placeholder="Nome..." />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Raça do animal</mat-label>
+      <input matInput formControlName="race" placeholder="Nome..." />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>tipo do cliente</mat-label>
+      <input matInput formControlName="type" placeholder="Nome..." />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Descrição do animal</mat-label>
+      <input matInput formControlName="description" placeholder="Nome..." />
+    </mat-form-field>
+
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Cpf do cliente...</mat-label>
+      <input type="text"
+             placeholder="Pick one"
+             aria-label="Number"
+             matInput
+             formControlName="owner"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of result | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <button mat-raised-button [disabled]="form.invalid">Cadastrar</button>
+  </form>
+</section>
