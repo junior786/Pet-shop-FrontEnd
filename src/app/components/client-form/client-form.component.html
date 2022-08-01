@@ -14,6 +14,14 @@
       <mat-label>Email do cliente</mat-label>
       <input matInput formControlName="email" placeholder="Nome..." />
     </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Sexo do animal</mat-label>
+      <mat-select formControlName="sex">
+        <mat-option *ngFor="let sex of sex" [value]="sex">
+          {{ sex }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
     <mat-form-field>
       <mat-label>Telefone do cliente</mat-label>

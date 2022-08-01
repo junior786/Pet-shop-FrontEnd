@@ -1,0 +1,11 @@
+<section class="container__page">
+  <button [disabled]="page.first" (click)="left()">
+   <span class="left"> < </span>
+  </button>
+  <div *ngFor="let unity of arrayNumber">
+    <app-page-unity [focus]="unity - 1 === page.number " [identify]="unity"></app-page-unity>
+  </div>
+  <button [disabled]="page.last" (click)="right()">
+    <span class="right"> > </span>
+   </button>
+</section>

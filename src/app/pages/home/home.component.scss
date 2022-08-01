@@ -20,4 +20,20 @@
   }
 }
 
+span {
+  font-family: poppins, sans-serif;
+
+}
+
+@media screen and (max-width: 660px) {
+  ::ng-deep {
+    .mat-toolbar {
+      span {
+       font-size: 8px
+      }
+    }
+
+  }
+}
+
 

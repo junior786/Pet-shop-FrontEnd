@@ -1,0 +1,7 @@
+<section class="container__cards">
+  <div *ngFor=" let client of clients$ | async">
+    <app-card-client [client]="client"></app-card-client>
+  </div>
+</section>
+<app-app-page *ngIf="page$ | async as page" [page]="page"></app-app-page>
+

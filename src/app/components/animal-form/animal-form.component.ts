@@ -1,12 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
-  Observable,
   Subject,
-  Subscription,
+  Subscription
 } from 'rxjs';
-import { ClientService } from 'src/app/service/client.service';
-import { ClientResponse } from 'src/app/service/model/client-response';
+import { AnimalService } from 'src/app/service/animal.service';
 
 @Component({
   selector: 'app-animal-form',
@@ -14,16 +12,16 @@ import { ClientResponse } from 'src/app/service/model/client-response';
   styleUrls: ['./animal-form.component.scss'],
 })
 export class AnimalFormComponent implements OnInit, OnDestroy {
-  private client$?: Observable<ClientResponse[]>;
-  private client!: ClientResponse[];
   private subscription = new Subscription();
 
   public result = new Subject<string[]>();
   public form!: FormGroup;
 
-  constructor(private fb: FormBuilder, private service: ClientService) {
-    this.service.getClient();
-    this.client$ = this.service.client$?.asObservable();
+  constructor(private fb: FormBuilder, private service: AnimalService) {
+  }
+
+  get sex(): string[] {
+    return ['Masculino', 'Feminino'];
   }
 
   ngOnDestroy(): void {
@@ -31,30 +29,9 @@ export class AnimalFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subscription.add(
-      this.client$?.subscribe((data) => {
-        this.client = data;
-        this.result?.next(data.map((client) => client.cpf));
-      })
-    );
     this.createForm();
-    this.changeOptions();
-  }
 
-  changeOptions(): void {
-    this.subscription.add(
-      this.form
-        .get('owner')
-        ?.valueChanges.subscribe((value) =>
-          this.result.next(this.filterName(value)?.map((client) => client.cpf))
-        )
-    );
-  }
-
-  filterName(value: string): ClientResponse[] {
-    return this.client?.filter((client) =>
-      client.cpf.toLocaleLowerCase().includes(value.toLocaleLowerCase())
-    );
+    this.form.valueChanges.subscribe(console.log)
   }
 
   private createForm(): void {
@@ -64,7 +41,11 @@ export class AnimalFormComponent implements OnInit, OnDestroy {
       type: ['', Validators.required],
       race: ['', Validators.required],
       description: ['', Validators.required],
-      owner: ['', Validators.required],
+      owner: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
     });
+  }
+
+  public saveAnimal(): void {
+    this.service.saveAnimal(this.form.getRawValue());
   }
 }

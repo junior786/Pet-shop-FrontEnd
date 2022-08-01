@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar class="cadaster">
   <span class="text__title">PETSHOP</span>
   <span class="text__client" (click)="openClient()">cadastrar cliente</span>
   <span class="text__client" (click)="openAnimal()">cadastrar animal</span>
@@ -6,8 +6,9 @@
 <main>
   <section class="container__main">
     <mat-tab-group>
+      <mat-tab label="Clientes"><app-grid-client></app-grid-client></mat-tab>
       <mat-tab label="Animais">Animais</mat-tab>
-      <mat-tab label="Clientes">Clientes</mat-tab>
+      <mat-tab label="Pedidos"></mat-tab>
     </mat-tab-group>
   </section>
 </main>

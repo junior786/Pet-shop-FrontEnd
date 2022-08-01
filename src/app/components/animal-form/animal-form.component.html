@@ -1,13 +1,8 @@
 <section class="container__main">
-  <form class="form" [formGroup]="form">
+  <form class="form" [formGroup]="form" (ngSubmit)="saveAnimal()">
     <mat-form-field>
       <mat-label>Nome do animal</mat-label>
       <input matInput formControlName="name" placeholder="Nome..." />
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Sexo do Animal</mat-label>
-      <input matInput formControlName="sex" placeholder="Nome..." />
     </mat-form-field>
 
     <mat-form-field>
@@ -25,21 +20,17 @@
       <input matInput formControlName="description" placeholder="Nome..." />
     </mat-form-field>
 
-
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Cpf do cliente...</mat-label>
-      <input type="text"
-             placeholder="Pick one"
-             aria-label="Number"
-             matInput
-             formControlName="owner"
-             [matAutocomplete]="auto">
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let option of result | async" [value]="option">
-          {{option}}
+    <mat-form-field appearance="fill">
+      <mat-label>Sexo do animal</mat-label>
+      <mat-select formControlName="sex">
+        <mat-option *ngFor="let sex of sex" [value]="sex">
+          {{ sex }}
         </mat-option>
-      </mat-autocomplete>
+      </mat-select>
     </mat-form-field>
+
+    <app-select-client-container formControlName="owner">
+    </app-select-client-container>
 
     <button mat-raised-button [disabled]="form.invalid">Cadastrar</button>
   </form>

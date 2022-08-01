@@ -1,1 +1,16 @@
-<p>select-client-container works!</p>
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>CPF do cliente...</mat-label>
+  <input
+    type="text"
+    [(ngModel)]="idClient"
+    (ngModelChange)="cpf.next($event)"
+    placeholder="Escolha um"
+    matInput
+    [matAutocomplete]="auto"
+  />
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let option of result$ | async" [value]="option.cpf">
+      {{ option.cpf| mask: '000.000.000-00' }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

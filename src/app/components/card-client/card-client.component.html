@@ -1,0 +1,22 @@
+<section class="main__card mat-elevation-z8" *ngIf="client">
+  <div class="image">
+    <img
+      [src]="sexEnum[client.sex]"
+      loading="lazy"
+      alt="client"
+      width="100rem"
+      height="100rem"
+    />
+  </div>
+
+  <div class="container__info">
+    <div class="info__person">
+      <span>{{ client.name | maxChar }}</span>
+      <span>{{ client.cpf | maxChar | mask: '000.000.000-00' }}</span>
+    </div>
+    <div class="info__contact">
+      <span class="important"> {{ client.telephone | maxChar }} </span>
+      <span class="important">{{ client.email | maxChar }}</span>
+    </div>
+  </div>
+</section>

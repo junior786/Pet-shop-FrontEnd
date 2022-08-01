@@ -13,6 +13,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { PopUpComponent } from './components/pop-up/pop-up.component';
 import { AnimalFormComponent } from './components/animal-form/animal-form.component';
 import { SelectClientContainerComponent } from './components/animal-form/select-client-container/select-client-container.component'
+import { NgxMaskModule } from 'ngx-mask'
+import { InputMaskModule } from 'racoon-mask-raw';
+import { CardClientComponent } from './components/card-client/card-client.component';
+import { GridClientComponent } from './components/grid-client/grid-client.component';
+import { MaxChar } from './service/pipe/max-caracteres';
+import { AppPageComponent } from './components/app-page/app-page.component';
+import { PageUnityComponent } from './components/app-page/page-unity/page-unity.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +28,12 @@ import { SelectClientContainerComponent } from './components/animal-form/select-
     ClientFormComponent,
     PopUpComponent,
     AnimalFormComponent,
-    SelectClientContainerComponent
+    SelectClientContainerComponent,
+    CardClientComponent,
+    GridClientComponent,
+    MaxChar,
+    AppPageComponent,
+    PageUnityComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
@@ -32,6 +44,9 @@ import { SelectClientContainerComponent } from './components/animal-form/select-
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    InputMaskModule,
+    NgxMaskModule.forRoot(),
+
 
   ],
   bootstrap: [AppComponent]

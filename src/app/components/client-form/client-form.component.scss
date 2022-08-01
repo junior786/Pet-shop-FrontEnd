@@ -7,6 +7,10 @@
   align-items: center;
 }
 
+input::placeholder {
+  font-family: poppins, sans-serif;
+}
+
 ::ng-deep {
 
   .mat-raised-button {

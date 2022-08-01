@@ -22,10 +22,13 @@ export class ClientFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('destruiu');
   }
 
   ngOnInit(): void {}
+
+  get sex(): string[] {
+    return ['Masculino', 'Feminino'];
+  }
 
   public submit(): void {
     this.spinner = true;
@@ -39,6 +42,7 @@ export class ClientFormComponent implements OnInit, OnDestroy {
       name: ['', Validators.required],
       cpf: ['', Validators.required],
       email: ['', Validators.required],
+      sex: ['', Validators.required],
       telephone: ['', Validators.required],
     });
   }

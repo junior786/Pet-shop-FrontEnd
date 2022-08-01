@@ -1,0 +1,51 @@
+.main__card {
+  display: flex;
+  width: 25rem;
+  height: 152px;
+  gap: 50px;
+  align-items: center;
+    span {
+      font-family: poppins, sans-serif;
+    }
+  .image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  .container__info {
+    max-width: 25rem;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    display: flex;
+
+    .info__contact,
+    .info__person {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      font-weight: 400;
+
+      .important {
+        font-weight: 800;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 436px) {
+  .main__card {
+    width: 20rem;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .main__card {
+    width: 15rem;
+  }
+}

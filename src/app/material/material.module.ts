@@ -9,6 +9,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatIconModule} from '@angular/material/icon';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [],
@@ -23,6 +24,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatIconModule,
     MatAutocompleteModule,
     MatTabsModule,
+    MatSelectModule,
   ],
   exports: [
     MatToolbarModule,
@@ -34,6 +36,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatIconModule,
     MatAutocompleteModule,
     MatTabsModule,
+    MatSelectModule,
   ]
 })
 export class MaterialModule { }
